@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SONATA•STORE - Your Trusted Digital Store. Top up Mobile Legends mudah dengan pemesanan melalui WhatsApp.">
+<meta name="theme-color" content="#080808">
+<title>SONATA•STORE | Your Trusted Digital Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{--bg:#080808;--panel:#171717;--panel2:#202020;--gold:#D4AF37;--gold2:#f5d76e;--white:#fff;--muted:#a5a5a5;--line:rgba(212,175,55,.2);--green:#25D366}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:Inter,Arial,sans-serif;line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button{cursor:pointer}
+.container{width:min(1180px,calc(100% - 36px));margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(8,8,8,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{min-height:72px;display:flex;align-items:center;gap:22px}
+.logo{font-family:Orbitron,sans-serif;font-weight:900;letter-spacing:1px;font-size:19px;white-space:nowrap}
+.logo b{color:var(--gold)}
+nav{margin-left:auto;display:flex;gap:22px}
+nav a{font-size:13px;color:#ddd}nav a:hover{color:var(--gold)}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.search{width:190px;background:#171717;border:1px solid var(--line);border-radius:30px;padding:10px 14px;color:white;outline:none}
+.search:focus{border-color:var(--gold)}
+.cart-button,.menu-button{border:1px solid var(--line);background:var(--panel);color:var(--gold);border-radius:12px;padding:10px 13px;position:relative}
+.cart-count{background:var(--gold);color:#080808;border-radius:20px;padding:1px 6px;font-size:10px;font-weight:800;position:absolute;top:-7px;right:-7px}
+.menu-button{display:none}
+.hero{padding:100px 0 90px;text-align:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 0,rgba(212,175,55,.17),transparent 60%)}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(212,175,55,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(212,175,55,.035) 1px,transparent 1px);background-size:42px 42px;mask-image:radial-gradient(ellipse,black,transparent 75%)}
+.hero-inner{position:relative}
+.badge{display:inline-block;border:1px solid var(--gold);color:var(--gold);border-radius:30px;padding:7px 15px;font-size:11px;letter-spacing:2px;margin-bottom:20px}
+h1,h2,h3{line-height:1.2}
+.hero h1{font:900 clamp(30px,6vw,62px)/1.12 Orbitron,sans-serif;max-width:900px;margin:0 auto 18px}
+.gold{color:var(--gold)}
+.hero p{max-width:620px;margin:0 auto 28px;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 20px;border-radius:30px;font-weight:800;font-size:13px;border:1px solid transparent;transition:.2s}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#090909}
+.btn-primary:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn-outline{border-color:var(--gold);color:var(--gold)}.btn-outline:hover{background:var(--gold);color:#090909}
+section{padding:68px 0}
+.section-head{text-align:center;margin-bottom:34px}
+.eyebrow{color:var(--gold);font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase}
+.section-head h2{font:800 clamp(24px,4vw,36px) Orbitron,sans-serif;margin:9px 0}
+.section-head p{color:var(--muted);font-size:14px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:linear-gradient(145deg,#1b1b1b,#101010);border:1px solid var(--line);border-radius:17px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 15px 35px #0008}
+.product-art{height:150px;display:grid;place-items:center;background:radial-gradient(circle,rgba(212,175,55,.16),transparent 65%),#111;position:relative}
+.product-art i{font-size:54px;color:var(--gold);filter:drop-shadow(0 0 16px #d4af3755)}
+.tag{position:absolute;top:12px;left:12px;background:var(--gold);color:#090909;padding:4px 9px;border-radius:20px;font-size:10px;font-weight:900}
+.card-content{padding:17px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:15px;margin-bottom:7px}
+.card .desc{font-size:12px;color:var(--muted);min-height:36px;margin-bottom:13px}
+.price{font:800 18px Orbitron,sans-serif;color:var(--gold);margin-bottom:14px}
+.card-actions{display:flex;gap:8px;margin-top:auto}
+.card-actions .btn{flex:1;padding:10px 8px;font-size:11px}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.feature{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:25px;text-align:center}
+.feature i{font-size:26px;color:var(--gold);margin-bottom:12px}
+.feature h3{font-size:15px;margin-bottom:7px}.feature p{font-size:12px;color:var(--muted)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.step{padding:22px;background:var(--panel);border:1px solid var(--line);border-radius:14px}
+.step b{display:grid;place-items:center;width:34px;height:34px;background:var(--gold);color:#090909;border-radius:50%;margin-bottom:12px}
+.step h3{font-size:14px;margin-bottom:6px}.step p{font-size:12px;color:var(--muted)}
+.about{max-width:780px;margin:auto;text-align:center;color:var(--muted)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.contact{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:22px;text-align:center}
+.contact i{font-size:28px;color:var(--gold);margin-bottom:12px}.contact h3{font-size:15px;margin-bottom:8px}.contact p{font-size:12px;color:var(--muted);margin-bottom:15px;overflow-wrap:anywhere}
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:12px;text-align:center}
+footer strong{color:var(--gold)}
+.float-wa{position:fixed;right:20px;bottom:20px;width:54px;height:54px;border-radius:50%;background:var(--green);color:white;display:grid;place-items:center;font-size:27px;z-index:15;box-shadow:0 5px 20px #25d36655}
+.overlay{position:fixed;inset:0;background:#000b;z-index:40;display:none;align-items:center;justify-content:center;padding:15px}
+.overlay.open{display:flex}
+.dialog{width:min(620px,100%);max-height:92vh;overflow:auto;background:#171717;border:1px solid var(--gold);border-radius:18px;padding:22px;box-shadow:0 20px 60px #000}
+.dialog-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.dialog-head h2{font:800 20px Orbitron,sans-serif;color:var(--gold)}
+.close{color:#bbb;background:none;border:0;font-size:24px}
+.cart-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:13px 0;border-bottom:1px solid var(--line);align-items:center}
+.cart-row small{display:block;color:var(--muted);margin-top:3px}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{background:#292929;color:var(--gold);border:1px solid var(--line);border-radius:7px;width:29px;height:29px}
+.qty span{min-width:18px;text-align:center}
+.remove{color:#ff7777;background:none;border:0;font-size:12px;margin-left:8px}
+.total{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding:17px 0;margin-top:10px;font-weight:800}
+.total strong{color:var(--gold);font:800 19px Orbitron,sans-serif}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+.field.full{grid-column:1/-1}
+.field label{font-size:12px;color:#ddd;font-weight:700}
+.field input,.field textarea{width:100%;background:#090909;color:white;border:1px solid var(--line);border-radius:9px;padding:12px;outline:none}
+.field input:focus,.field textarea:focus{border-color:var(--gold)}
+.field textarea{min-height:75px;resize:vertical}
+.notice{background:#d4af3714;border-left:3px solid var(--gold);padding:12px;border-radius:7px;color:#ddd;font-size:12px;margin:12px 0}
+.empty{text-align:center;color:var(--muted);padding:30px 10px}
+.hidden{display:none!important}
+@media(max-width:850px){nav{gap:12px}.search{width:145px}}
+@media(max-width:680px){
+ .nav{flex-wrap:wrap;padding:12px 0;gap:10px}.logo{font-size:16px}.menu-button{display:block;margin-left:auto}
+ nav{display:none;order:3;width:100%;margin:0;padding:10px 0;flex-direction:column;gap:14px}nav.show{display:flex}
+ .nav-actions{order:2}.search{width:min(38vw,160px)}
+ .hero{padding:75px 0}.hero p{font-size:14px}
+ section{padding:52px 0}.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+ .product-art{height:115px}.product-art i{font-size:42px}.card-content{padding:12px}.card h3{font-size:13px}.card .desc{font-size:11px;min-height:44px}.price{font-size:14px}
+ .card-actions{flex-direction:column}.card-actions .btn{width:100%}
+ .form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}
+}
+@media(max-width:370px){.products{grid-template-columns:1fr}.nav-actions{width:100%}.search{flex:1}}
+</style>
+</head>
+<body>
+<header>
+ <div class="container nav">
+  <a class="logo" href="#home">SONATA<span class="gold">•</span><b>STORE</b></a>
+  <button class="menu-button" id="menuBtn" aria-label="Buka menu"><i class="fa-solid fa-bars"></i></button>
+  <nav id="navLinks"><a href="#home">Home</a><a href="#products">Produk</a><a href="#about">Tentang</a><a href="#contact">Kontak</a></nav>
+  <div class="nav-actions">
+   <input id="searchInput" class="search" type="search" placeholder="Cari produk..." aria-label="Cari produk">
+   <button class="cart-button" id="openCart" aria-label="Buka keranjang"><i class="fa-solid fa-cart-shopping"></i><span class="cart-count" id="cartCount">0</span></button>
+  </div>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="home"><div class="container hero-inner">
+ <span class="badge"><i class="fa-solid fa-bolt"></i> YOUR TRUSTED DIGITAL STORE</span>
+ <h1>LEVEL UP YOUR GAME WITH <span class="gold">SONATA•STORE</span></h1>
+ <p>Top up Mobile Legends dengan mudah. Pilih produk, masukkan ID game, lalu lanjutkan pemesanan langsung melalui WhatsApp admin.</p>
+ <a class="btn btn-primary" href="#products">BELI SEKARANG <i class="fa-solid fa-arrow-right"></i></a>
+</div></section>
+
+<section id="products"><div class="container">
+ <div class="section-head"><div class="eyebrow">KATALOG PRODUK</div><h2>Mobile Legends <span class="gold">Top Up</span></h2><p>Pilih nominal diamond sesuai kebutuhanmu.</p></div>
+ <div class="products" id="productGrid"></div>
+</div></section>
+
+<section><div class="container">
+ <div class="section-head"><div class="eyebrow">KENAPA SONATA•STORE</div><h2>Layanan <span class="gold">Kami</span></h2></div>
+ <div class="features">
+  <div class="feature"><i class="fa-solid fa-tags"></i><h3>Harga Jelas</h3><p>Harga ditampilkan sebelum pesanan dikirim ke admin.</p></div>
+  <div class="feature"><i class="fa-brands fa-whatsapp"></i><h3>Pesan via WhatsApp</h3><p>Detail pesanan langsung dikirim ke WhatsApp admin.</p></div>
+  <div class="feature"><i class="fa-solid fa-headset"></i><h3>Layanan Admin</h3><p>Konfirmasi dan instruksi pembayaran diberikan oleh admin.</p></div>
+  <div class="feature"><i class="fa-solid fa-shield-halved"></i><h3>Konfirmasi Manual</h3><p>Pesanan diproses setelah admin memeriksa pembayaran.</p></div>
+ </div>
+</div></section>
+
+<section><div class="container">
+ <div class="section-head"><div class="eyebrow">CARA PEMESANAN</div><h2>4 Langkah <span class="gold">Mudah</span></h2></div>
+ <div class="steps">
+  <div class="step"><b>1</b><h3>Pilih Produk</h3><p>Pilih nominal diamond atau Weekly Diamond Pass.</p></div>
+  <div class="step"><b>2</b><h3>Isi Data Game</h3><p>Masukkan User ID dan Zone ID Mobile Legends dengan benar.</p></div>
+  <div class="step"><b>3</b><h3>Kirim Pesanan</h3><p>Periksa ringkasan, lalu kirim detail pesanan ke WhatsApp admin.</p></div>
+  <div class="step"><b>4</b><h3>Bayar & Konfirmasi</h3><p>Ikuti instruksi admin dan kirim bukti pembayaran untuk diperiksa.</p></div>
+ </div>
+</div></section>
+
+<section id="about"><div class="container">
+ <div class="section-head"><div class="eyebrow">TENTANG KAMI</div><h2>SONATA<span class="gold">•</span>STORE</h2></div>
+ <p class="about">SONATA•STORE merupakan toko layanan digital yang menyediakan kebutuhan top up game dengan proses pemesanan mudah, harga bersahabat, dan pelayanan melalui WhatsApp. <strong class="gold">Your Trusted Digital Store.</strong></p>
+</div></section>
+
+<section id="contact"><div class="container">
+ <div class="section-head"><div class="eyebrow">HUBUNGI KAMI</div><h2>Kontak <span class="gold">SONATA•STORE</span></h2></div>
+ <div class="contact-grid">
+  <div class="contact"><i class="fa-brands fa-whatsapp"></i><h3>WhatsApp Admin</h3><p>+62 831-6010-7605</p><a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/6283160107605">Hubungi Admin</a></div>
+  <div class="contact"><i class="fa-brands fa-youtube"></i><h3>YouTube</h3><p>@kyami_absolute</p><a class="btn btn-outline" target="_blank" rel="noopener" href="https://youtube.com/@kyami_absolute">Kunjungi YouTube</a></div>
+  <div class="contact"><i class="fa-brands fa-whatsapp"></i><h3>WhatsApp Channel</h3><p>Ikuti informasi SONATA•STORE</p><a class="btn btn-outline" target="_blank" rel="noopener" href="https://whatsapp.com/channel/0029Vb5tjrH4Y9lgyYknDh3Y">Ikuti Channel</a></div>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="container"><p><strong>SONATA•STORE</strong> — Your Trusted Digital Store.</p><p>© <span id="year"></span> SONATA•STORE. Harga dapat berubah mengikuti katalog pemasok dan konfirmasi admin.</p></div></footer>
+<a class="float-wa" href="https://wa.me/6283160107605" target="_blank" rel="noopener" aria-label="WhatsApp admin"><i class="fa-brands fa-whatsapp"></i></a>
+
+<div class="overlay" id="cartModal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+ <div class="dialog"><div class="dialog-head"><h2 id="cartTitle">Keranjang Belanja</h2><button class="close" data-close="cartModal" aria-label="Tutup">&times;</button></div>
+  <div id="cartItems"></div><div class="total"><span>Total</span><strong id="cartTotal">Rp0</strong></div>
+  <button class="btn btn-primary" id="checkoutBtn" style="width:100%">LANJUT CHECKOUT <i class="fa-solid fa-arrow-right"></i></button>
+ </div>
+</div>
+
+<div class="overlay" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+ <div class="dialog"><div class="dialog-head"><h2 id="checkoutTitle">Data Pemesanan</h2><button class="close" data-close="checkoutModal" aria-label="Tutup">&times;</button></div>
+  <form id="checkoutForm">
+   <div class="form-grid">
+    <div class="field"><label for="customerName">Nama pelanggan *</label><input id="customerName" required maxlength="70" placeholder="Nama kamu"></div>
+    <div class="field"><label for="customerPhone">Nomor WhatsApp *</label><input id="customerPhone" required inputmode="tel" maxlength="20" placeholder="08xxxxxxxxxx"></div>
+    <div class="field"><label for="userId">User ID Mobile Legends *</label><input id="userId" required inputmode="numeric" maxlength="25" placeholder="Contoh: 123456789"></div>
+    <div class="field"><label for="zoneId">Zone ID *</label><input id="zoneId" required inputmode="numeric" maxlength="12" placeholder="Contoh: 1234"></div>
+    <div class="field full"><label for="notes">Catatan tambahan (opsional)</label><textarea id="notes" maxlength="400" placeholder="Tulis catatan jika ada"></textarea></div>
+   </div>
+   <div class="notice">Pastikan User ID dan Zone ID benar. Setelah menekan tombol, WhatsApp akan terbuka dengan ringkasan pesanan. Pembayaran dilakukan setelah admin memberikan instruksi. Pembayaran diperiksa secara manual oleh admin.</div>
+   <div class="total"><span>Total pesanan</span><strong id="checkoutTotal">Rp0</strong></div>
+   <button class="btn btn-primary" type="submit" style="width:100%">KIRIM PESANAN KE WHATSAPP <i class="fa-brands fa-whatsapp"></i></button>
+  </form>
+ </div>
+</div>
+<div id="toast" style="position:fixed;left:50%;bottom:88px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#222;border:1px solid #d4af37;border-radius:10px;padding:11px 17px;z-index:60;transition:.25s;font-size:13px"></div>
+
+<script>
+"use strict";
+const ADMIN_WA = "6283160107605";
+const products = [
+ {id:"hmobilelegend5",name:"5 Diamonds",price:3768,original:1768,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend5",desc:"Top up 5 Diamonds Mobile Legends."},
+ {id:"hmobilelegend10",name:"10 Diamonds",price:5536,original:3536,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend10",desc:"Top up 10 Diamonds Mobile Legends."},
+ {id:"hmobilelegend12",name:"12 Diamonds (11 + 1 Bonus)",price:6142,original:4142,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend12",desc:"11 Diamonds + 1 bonus."},
+ {id:"hmobilelegend28",name:"28 Diamonds (25 + 3 Bonus)",price:10788,original:8788,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend28",desc:"25 Diamonds + 3 bonus."},
+ {id:"hmobilelegend56",name:"56 Diamonds (51 + 5 Bonus)",price:19172,original:17172,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend56",desc:"51 Diamonds + 5 bonus."},
+ {id:"hmobilelegend85",name:"85 Diamonds (77 + 8 Bonus)",price:27132,original:25132,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend85",desc:"77 Diamonds + 8 bonus."},
+ {id:"hmobilelegend514",name:"514 Diamonds (468 + 46 Bonus)",price:151435,original:149435,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend514",desc:"468 Diamonds + 46 bonus."},
+ {id:"hmobilelegendWP",name:"Weekly Diamond Pass",price:33819,original:31819,url:"https://buylink.id/Sonatastore/share?product=hmobilelegendWP",desc:"Weekly Diamond Pass Mobile Legends."}
+];
+const money = n => new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(n).replace(/\u00a0/g," ");
+let cart = {};
+try { cart = JSON.parse(localStorage.getItem("sonata_cart") || "{}") || {}; } catch(e) { cart = {}; }
+function saveCart(){localStorage.setItem("sonata_cart",JSON.stringify(cart));}
+function showToast(msg){const el=document.getElementById("toast");el.textContent=msg;el.style.opacity="1";el.style.transform="translate(-50%,0)";clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>{el.style.opacity="0";el.style.transform="translate(-50%,20px)"},2200);}
+function renderProducts(filter=""){
+ const grid=document.getElementById("productGrid");
+ const list=products.filter(p=>p.name.toLowerCase().includes(filter.toLowerCase()));
+ grid.innerHTML=list.length?list.map(p=>`<article class="card">
+  <div class="product-art"><span class="tag">MOBILE LEGENDS</span><i class="fa-solid fa-gem"></i></div>
+  <div class="card-content"><h3>${p.name}</h3><p class="desc">${p.desc}</p><div class="price">${money(p.price)}</div>
+  <div class="card-actions"><button class="btn btn-primary" onclick="addToCart('${p.id}')"><i class="fa-solid fa-cart-plus"></i> Tambah</button><button class="btn btn-outline" onclick="buyNow('${p.id}')">Beli</button></div></div></article>`).join(""):`<p class="empty">Produk tidak ditemukan.</p>`;
+}
+function cartEntries(){return Object.entries(cart).map(([id,qty])=>({product:products.find(p=>p.id===id),qty:Number(qty)})).filter(x=>x.product&&x.qty>0);}
+function total(){return cartEntries().reduce((sum,x)=>sum+x.product.price*x.qty,0);}
+function updateCartCount(){document.getElementById("cartCount").textContent=cartEntries().reduce((s,x)=>s+x.qty,0);}
+function addToCart(id){cart[id]=(Number(cart[id])||0)+1;saveCart();updateCartCount();showToast("Produk ditambahkan ke keranjang.");}
+function buyNow(id){addToCart(id);openModal("cartModal");}
+function changeQty(id,delta){cart[id]=Math.max(0,(Number(cart[id])||0)+delta);if(!cart[id])delete cart[id];saveCart();renderCart();}
+function removeItem(id){delete cart[id];saveCart();renderCart();}
+function renderCart(){
+ const box=document.getElementById("cartItems"),items=cartEntries();
+ if(!items.length){box.innerHTML='<div class="empty"><i class="fa-solid fa-cart-shopping" style="font-size:30px;color:#d4af37"></i><p>Keranjang masih kosong.</p></div>';}
+ else box.innerHTML=items.map(({product:p,qty})=>`<div class="cart-row"><div><strong>${p.name}</strong><small>${money(p.price)} × ${qty} = ${money(p.price*qty)}</small></div><div class="qty"><button type="button" onclick="changeQty('${p.id}',-1)" aria-label="Kurangi">−</button><span>${qty}</span><button type="button" onclick="changeQty('${p.id}',1)" aria-label="Tambah">+</button><button class="remove" type="button" onclick="removeItem('${p.id}')">Hapus</button></div></div>`).join("");
+ document.getElementById("cartTotal").textContent=money(total());document.getElementById("checkoutTotal").textContent=money(total());updateCartCount();
+ document.getElementById("checkoutBtn").disabled=!items.length;
+ document.getElementById("checkoutBtn").style.opacity=items.length?"1":".45";
+}
+function openModal(id){document.getElementById(id).classList.add("open");}
+function closeModal(id){document.getElementById(id).classList.remove("open");}
+document.getElementById("openCart").addEventListener("click",()=>{renderCart();openModal("cartModal")});
+document.querySelectorAll("[data-close]").forEach(b=>b.addEventListener("click",()=>closeModal(b.dataset.close)));
+document.querySelectorAll(".overlay").forEach(o=>o.addEventListener("click",e=>{if(e.target===o)o.classList.remove("open")}));
+document.getElementById("checkoutBtn").addEventListener("click",()=>{if(!cartEntries().length)return;document.getElementById("checkoutTotal").textContent=money(total());closeModal("cartModal");openModal("checkoutModal")});
+document.getElementById("checkoutForm").addEventListener("submit",e=>{
+ e.preventDefault();
+ const items=cartEntries();if(!items.length){showToast("Keranjang masih kosong.");return;}
+ const name=document.getElementById("customerName").value.trim();
+ const phone=document.getElementById("customerPhone").value.trim();
+ const userId=document.getElementById("userId").value.trim();
+ const zoneId=document.getElementById("zoneId").value.trim();
+ const notes=document.getElementById("notes").value.trim();
+ if(!name||!phone||!userId||!zoneId){showToast("Lengkapi semua data wajib.");return;}
+ const lines=items.map((x,i)=>`${i+1}. ${x.product.name}\n   Jumlah: ${x.qty}\n   Harga satuan: ${money(x.product.price)}\n   Subtotal: ${money(x.product.price*x.qty)}\n   Link produk: ${x.product.url}`).join("\n\n");
+ const message=`HALO ADMIN SONATA•STORE!\n\nSaya ingin memesan top up Mobile Legends.\n\nDATA PELANGGAN\nNama: ${name}\nNomor WhatsApp: ${phone}\n\nDETAIL PESANAN\n${lines}\n\nDATA AKUN MOBILE LEGENDS\nUser ID: ${userId}\nZone ID: ${zoneId}\n\nTOTAL PEMBAYARAN: ${money(total())}\n\nCatatan: ${notes||"-"}\n\nMohon konfirmasi pesanan dan berikan instruksi pembayaran. Terima kasih.`;
+ const waUrl=`https://wa.me/${ADMIN_WA}?text=${encodeURIComponent(message)}`;
+ window.open(waUrl,"_blank","noopener");
+});
+document.getElementById("searchInput").addEventListener("input",e=>renderProducts(e.target.value));
+document.getElementById("menuBtn").addEventListener("click",()=>document.getElementById("navLinks").classList.toggle("show"));
+document.querySelectorAll("#navLinks a").forEach(a=>a.addEventListener("click",()=>document.getElementById("navLinks").classList.remove("show")));
+document.getElementById("year").textContent=new Date().getFullYear();
+renderProducts();updateCartCount();
+</script>
+</body>
+</html>
