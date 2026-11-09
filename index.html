@@ -109,6 +109,27 @@ footer strong{color:var(--gold)}
  .form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}
 }
 @media(max-width:370px){.products{grid-template-columns:1fr}.nav-actions{width:100%}.search{flex:1}}
+
+/* Kartu katalog harga ala referensi Produk Terlaris */
+.card{background:#fff;color:#111;border:1px solid #d9dce5;border-radius:14px;box-shadow:0 5px 16px #0002}
+.card:hover{border-color:var(--gold);box-shadow:0 12px 26px #0004}
+.product-art{height:auto;min-height:0;display:block;background:#fff}
+.product-art i{display:none}
+.product-art .tag{position:static;display:flex;justify-content:center;align-items:center;gap:9px;border-radius:0;background:linear-gradient(105deg,#121212,#705817);color:#f5d76e;padding:11px 8px;font-size:12px;letter-spacing:.5px}
+.product-art .tag:before{content:"\\f06d";font-family:"Font Awesome 6 Free";font-weight:900;font-size:16px}
+.card-content{padding:11px 14px 15px;background:#fff;color:#111}
+.card h3{font-size:clamp(16px,2vw,22px);font-weight:800;color:#173bd5;margin:0 0 7px}
+.card .desc{font-size:12px;color:#69707c;min-height:0;margin-bottom:9px}
+.price-meta{margin:0 0 2px}
+.original-price{font-size:13px;color:#9298a2;text-decoration:line-through}
+.price{font:800 23px/1.25 Inter,Arial,sans-serif;color:#080808;margin:0 0 4px;letter-spacing:-.6px}
+.unit-price{font-size:11px;color:#9298a2;margin:0 0 12px}
+.bonus-line{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;color:#161616;font-size:13px;font-weight:700}
+.bonus-coin{width:29px;height:29px;border-radius:50%;display:inline-grid;place-items:center;background:linear-gradient(145deg,#ffe36a,#e89a08);border:2px solid #d68b00;color:#8b4b00}
+.card-actions .btn-primary{background:linear-gradient(105deg,#171717,#705817);color:#f5d76e}
+.card-actions .btn-outline{border-color:#171717;color:#171717}
+@media(max-width:680px){.product-art .tag{font-size:10px;padding:9px 5px}.card-content{padding:9px}.card h3{font-size:15px}.card .desc{font-size:10px}.price{font-size:18px}.original-price{font-size:10px}.unit-price{font-size:9px}.bonus-line{font-size:11px}.bonus-coin{width:25px;height:25px}}
+
 </style>
 </head>
 <body>
@@ -204,14 +225,22 @@ footer strong{color:var(--gold)}
 "use strict";
 const ADMIN_WA = "6283160107605";
 const products = [
- {id:"hmobilelegend5",name:"5 Diamonds",price:3768,original:1768,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend5",desc:"Top up 5 Diamonds Mobile Legends."},
- {id:"hmobilelegend10",name:"10 Diamonds",price:5536,original:3536,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend10",desc:"Top up 10 Diamonds Mobile Legends."},
- {id:"hmobilelegend12",name:"12 Diamonds (11 + 1 Bonus)",price:6142,original:4142,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend12",desc:"11 Diamonds + 1 bonus."},
- {id:"hmobilelegend28",name:"28 Diamonds (25 + 3 Bonus)",price:10788,original:8788,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend28",desc:"25 Diamonds + 3 bonus."},
- {id:"hmobilelegend56",name:"56 Diamonds (51 + 5 Bonus)",price:19172,original:17172,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend56",desc:"51 Diamonds + 5 bonus."},
- {id:"hmobilelegend85",name:"85 Diamonds (77 + 8 Bonus)",price:27132,original:25132,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend85",desc:"77 Diamonds + 8 bonus."},
- {id:"hmobilelegend514",name:"514 Diamonds (468 + 46 Bonus)",price:151435,original:149435,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend514",desc:"468 Diamonds + 46 bonus."},
- {id:"hmobilelegendWP",name:"Weekly Diamond Pass",price:33819,original:31819,url:"https://buylink.id/Sonatastore/share?product=hmobilelegendWP",desc:"Weekly Diamond Pass Mobile Legends."}
+{id:"hmobilelegend3",name:"3 Diamonds",amount:3,bonus:0,price:3900,original:1900,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend3",desc:"3 Diamonds Mobile Legends."},
+{id:"hmobilelegend5",name:"5 Diamonds",amount:5,bonus:0,price:4768,original:2768,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend5",desc:"5 Diamonds Mobile Legends."},
+{id:"hmobilelegend10",name:"10 Diamonds",amount:10,bonus:0,price:5536,original:3536,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend10",desc:"10 Diamonds Mobile Legends."},
+{id:"hmobilelegend12",name:"12 Diamonds",amount:12,bonus:1,price:6142,original:4142,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend12",desc:"11 Diamonds + 1 Bonus."},
+{id:"hmobilelegend14",name:"14 Diamonds",amount:14,bonus:1,price:7500,original:5500,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend14",desc:"13 Diamonds + 1 Bonus."},
+{id:"hmobilelegend19",name:"19 Diamonds",amount:19,bonus:2,price:9000,original:7000,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend19",desc:"17 Diamonds + 2 Bonus."},
+{id:"hmobilelegend28",name:"28 Diamonds",amount:28,bonus:3,price:10788,original:8788,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend28",desc:"25 Diamonds + 3 Bonus."},
+{id:"hmobilelegend44",name:"44 Diamonds",amount:44,bonus:4,price:16000,original:14000,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend44",desc:"40 Diamonds + 4 Bonus."},
+{id:"hmobilelegend56",name:"56 Diamonds",amount:56,bonus:5,price:19172,original:17172,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend56",desc:"51 Diamonds + 5 Bonus."},
+{id:"hmobilelegend59",name:"59 Diamonds",amount:59,bonus:6,price:21000,original:19000,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend59",desc:"53 Diamonds + 6 Bonus."},
+{id:"hmobilelegend85",name:"85 Diamonds",amount:85,bonus:8,price:27132,original:25132,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend85",desc:"77 Diamonds + 8 Bonus."},
+{id:"hmobilelegend300",name:"300 Diamonds",amount:300,bonus:40,price:97000,original:95000,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend300",desc:"260 Diamonds + 40 Bonus."},
+{id:"hmobilelegend514",name:"514 Diamonds",amount:514,bonus:46,price:151435,original:149435,url:"https://buylink.id/Sonatastore/share?product=hmobilelegend514",desc:"468 Diamonds + 46 Bonus."},
+{id:"hmobilelegendWP",name:"Weekly Diamond Pass",amount:0,bonus:0,price:33819,original:31819,url:"https://buylink.id/Sonatastore/share?product=hmobilelegendWP",desc:"Weekly Diamond Pass Mobile Legends.",category:"pass"},
+{id:"gl_mlbbmeb",name:"Monthly Epic Bundle (Global)",amount:0,bonus:0,price:88859,original:86859,url:"https://buylink.id/Sonatastore/share?product=gl_mlbbmeb",desc:"Monthly Epic Bundle (Global).",category:"bundle"},
+{id:"hmobilelegendTP",name:"Twilight Pass",amount:0,bonus:0,price:164319,original:162319,url:"https://buylink.id/Sonatastore/share?product=hmobilelegendTP",desc:"Twilight Pass Mobile Legends.",category:"pass"}
 ];
 const money = n => new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",maximumFractionDigits:0}).format(n).replace(/\u00a0/g," ");
 let cart = {};
@@ -220,11 +249,16 @@ function saveCart(){localStorage.setItem("sonata_cart",JSON.stringify(cart));}
 function showToast(msg){const el=document.getElementById("toast");el.textContent=msg;el.style.opacity="1";el.style.transform="translate(-50%,0)";clearTimeout(showToast.timer);showToast.timer=setTimeout(()=>{el.style.opacity="0";el.style.transform="translate(-50%,20px)"},2200);}
 function renderProducts(filter=""){
  const grid=document.getElementById("productGrid");
- const list=products.filter(p=>p.name.toLowerCase().includes(filter.toLowerCase()));
- grid.innerHTML=list.length?list.map(p=>`<article class="card">
-  <div class="product-art"><span class="tag">MOBILE LEGENDS</span><i class="fa-solid fa-gem"></i></div>
-  <div class="card-content"><h3>${p.name}</h3><p class="desc">${p.desc}</p><div class="price">${money(p.price)}</div>
-  <div class="card-actions"><button class="btn btn-primary" onclick="addToCart('${p.id}')"><i class="fa-solid fa-cart-plus"></i> Tambah</button><button class="btn btn-outline" onclick="buyNow('${p.id}')">Beli</button></div></div></article>`).join(""):`<p class="empty">Produk tidak ditemukan.</p>`;
+ const list=products.filter(p=>(p.name+" "+p.desc).toLowerCase().includes(filter.toLowerCase()));
+ grid.innerHTML=list.length?list.map(p=>{
+  const bonus=p.bonus?`<span>+${p.bonus} <span class="bonus-coin"><i class="fa-solid fa-coins"></i></span></span>`:"";
+  const unit=p.amount?`<div class="unit-price">(${money(p.price/p.amount).replace(/,00$/,"")}/diamond)</div>`:`<div class="unit-price">${p.category==="bundle"?"Paket bundle":"Produk pass"}</div>`;
+  return `<article class="card"><div class="product-art"><span class="tag">Produk Terlaris</span></div>
+   <div class="card-content"><div class="bonus-line"><h3>${p.name}</h3>${bonus}</div>
+   <p class="desc">${p.desc}</p><div class="price-meta"><span class="original-price">${money(p.original)}</span></div>
+   <div class="price">${money(p.price)}</div>${unit}
+   <div class="card-actions"><button class="btn btn-primary" onclick="addToCart('${p.id}')"><i class="fa-solid fa-cart-plus"></i> Tambah</button><button class="btn btn-outline" onclick="buyNow('${p.id}')">Beli</button></div></div></article>`;
+ }).join(""):`<p class="empty">Produk tidak ditemukan.</p>`;
 }
 function cartEntries(){return Object.entries(cart).map(([id,qty])=>({product:products.find(p=>p.id===id),qty:Number(qty)})).filter(x=>x.product&&x.qty>0);}
 function total(){return cartEntries().reduce((sum,x)=>sum+x.product.price*x.qty,0);}
